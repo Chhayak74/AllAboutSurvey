@@ -1,5 +1,5 @@
 
-
+var myApp = angular.module('surveyApp' , ['ngRoute']);
 var express = require('express');
 var app = express();
 app.all('*', function(req, res, next) {
@@ -9,4 +9,3 @@ app.all('*', function(req, res, next) {
   next();
  });
 
-var myApp = angular.module('surveyApp' , ['ngRoute']);
