@@ -1,0 +1,14 @@
+
+<div>
+	<div ng-repeat="survey in allSurveys.surveys">
+		<div>
+			<a ng-href='#/{{survey.surveyId}}'>{{survey.surveyTitle}}</a>
+			<p>{{survey.surveySubtitle}}</p>
+			<p>{{survey.instructions}}</p>
+		</div>
+		<div>
+			<button ng-click='allSurveys.delete(survey.surveyId)'>Delete</button>
+		</div>
+	</div>
+</div>
+<a  ng-href='#/create'>Create new survey</a>

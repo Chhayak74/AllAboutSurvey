@@ -1,0 +1,30 @@
+<div ng-hide="a">
+	<div>
+		<p>{{singleSurvey.surveyobj.surveyTitle}}</p>
+		<p>{{singleSurvey.surveyobj.surveySubtitle}}</p>
+		<p>{{singleSurvey.surveyobj.instructions}}</p>
+	</div>
+	<div ng-if="{{singleSurvey.questions}}">
+		<h1>Questions</h1>
+		<div ng-repeat="question in questions">
+			<div>{{question}}</div>
+		</div>
+	</div>
+	<div>
+		<a class="btn btn-primary" ng-href="#/{{singleSurvey.surveyId}}/edit">Edit</a>
+		<button ng-click="singleSurvey.delete()">Delete</button>
+		<button name="get"  ng-click="a='true'">Add More Questions</button>
+	</div>
+</div>
+<div ng-show="a" >
+	<div>
+		<form ng-submit="singleSurvey.addQuestion()">
+			<div class="form-group">
+			        <label>Question :</label>
+			        <textarea rows="4" cols="50" class="form-control" ng-model="singleSurvey.questionText" value="" required> 
+			        </textarea>
+			</div>
+			<input type="submit" name="">
+		</form>
+	</div>
+</div>

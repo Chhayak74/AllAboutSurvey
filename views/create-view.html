@@ -1,0 +1,17 @@
+
+
+<form ng-submit="currentSurvey.create()">
+    <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" ng-model="currentSurvey.surveyTitle" required>
+    </div>
+    <div class="form-group">
+            <label>Subtitle</label>
+            <input type="text" name="subtilte" class="form-control" ng-model="currentSurvey.surveySubtitle" required>
+    </div>
+    <div class="form-group">
+            <label>Instructions</label>
+            <input type="text" name="instructions" class="form-control" ng-model="currentSurvey.instructions" required>
+    </div>
+    <input type="submit" name="Create Survey"  value="Create Survey">
+</form>

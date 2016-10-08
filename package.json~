@@ -1,0 +1,21 @@
+{
+  "name": "edSters",
+  "version": "0.0.1",
+  "private": false,
+  "main": "app.js",
+  "dependencies": {
+    "anchorme.js": "^0.6.0",
+    "array-sort": "^0.1.2",
+    "body-parser": "latest",
+    "connect-mongo": "^1.2.1",
+    "cookie-parser": "latest",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "jade": "^1.11.0",
+    "lodash": "^4.13.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.0",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-beta3"
+  }
+}

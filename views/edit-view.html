@@ -1,0 +1,15 @@
+<form ng-submit="editableSurvey.edit()">
+    <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" ng-model="editableSurvey.surveyTitle" value="" required>
+    </div>
+    <div class="form-group">
+            <label>Subtitle</label>
+            <input type="text" name="subtilte" class="form-control" ng-model="editableSurvey.surveySubtitle" value="" required>
+    </div>
+    <div class="form-group">
+            <label>Instructions</label>
+            <input type="text" name="instruction" class="form-control" ng-model="editableSurvey.instructions" value="" required>
+    </div>
+    <input type="submit" name="Update Survey" value="Update Survey">
+</form>
