@@ -18,10 +18,12 @@ myApp.controller('singleSurveyCtrl' , [ '$http' , '$location' ,'$routeParams' , 
     }
     this.survey(this.surveyId);
 
-    this.delete = function(){
+    this.delete = function(index){
         surveyService.deleteSurvey(scope.surveyId)
         .then(function successCallBack(response){
-            alert("delete")
+            alert("delete");
+            scope.surveys.splice(index, 1);
+            $location.path('/all');
         }, function errorCallBack(response){
             alert("errorCallBack")
         });
@@ -38,43 +40,19 @@ myApp.controller('singleSurveyCtrl' , [ '$http' , '$location' ,'$routeParams' , 
         });
     }
     this.allQuestion();
-    this.addQuestion = function(){
-        surveyService.createQuestion(scope.surveyId , scope.questionText)
-        .then(function successCallBack(response){
-            alert("addQuestion")
-        } , function errorCallBack(response){
-            alert("errorCallBack")
-            console.log(response)
-        });
-    }//end add a question
 
-    this.editQuestion = function(){
-        surveyService.editAQuestion(scope.surveyId , scope.questionText)
-        .then(function successCallBack(response){
-            alert("addQuestion")
-        } , function errorCallBack(response){
-            alert("errorCallBack")
-            console.log(response)
-        });
-    }//end edit a question
-
-    this.deleteQuestion = function(questionId){
-        surveyService.deletQuestion(questionId)
-        .then(function successCallBack(response){
-            alert("question deleted")
-        } , function errorCallBack(response){
-            alert("errorCallBack question deleted")
-            console.log(response)
-        });
-    }//end add a question
+    
 
 
 
-
-    this.addOption = function(){
+    this.addOption = function(index){
         surveyService.createOptions(scope.surveyId , optionText)
         .then(function successCallBack(response){
-            alert("added")
+            alert("added");
+            console.log("index"+index)
+            if(index==3){
+                $location.path('/'+scope.surveyId);
+            }
         } , function errorCallBack(response){
             alert("errorCallBack")
             console.log(response)

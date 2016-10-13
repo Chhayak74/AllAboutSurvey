@@ -1,30 +1,81 @@
-<div ng-hide="a">
-	<div>
-		<p>{{singleSurvey.surveyobj.surveyTitle}}</p>
-		<p>{{singleSurvey.surveyobj.surveySubtitle}}</p>
-		<p>{{singleSurvey.surveyobj.instructions}}</p>
-	</div>
-	<div ng-if="{{singleSurvey.questions}}">
-		<h1>Questions</h1>
-		<div ng-repeat="question in questions">
-			<div>{{question}}</div>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 singlelast">
+			<div ng-hide="a">
+				<div class="text-center survey_info">
+					<div class="H1">{{singleSurvey.surveyobj.surveyTitle}}</div>
+					<div class="H2">{{singleSurvey.surveyobj.surveySubtitle}}</div>
+					<div class="Sub">{{singleSurvey.surveyobj.instructions}}</div>
+				</div>
+				<div ng-if="singleSurvey.questions.length>0">
+					<h1>Questions</h1>
+					<div ng-repeat="question in singleSurvey.questions">
+						<div><i class="fa fa-times" aria-hidden="true"></i> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{question.questionText}}</div>
+					</div>
+				</div>
+				<br>
+				<div>
+					<a  ng-href="#/{{singleSurvey.surveyId}}/edit"><button class="button">Edit</button></a>
+					<a ><button class="button" ng-click="singleSurvey.delete($index)">Delete</button></a>
+					<a  href="#/{{singleSurvey.surveyId}}/question/create"><button class="button" name="get" >Add More Questions</button></a>
+				</div>
+			</div>
+
 		</div>
 	</div>
-	<div>
-		<a class="btn btn-primary" ng-href="#/{{singleSurvey.surveyId}}/edit">Edit</a>
-		<button ng-click="singleSurvey.delete()">Delete</button>
-		<button name="get"  ng-click="a='true'">Add More Questions</button>
-	</div>
 </div>
-<div ng-show="a" >
-	<div>
-		<form ng-submit="singleSurvey.addQuestion()">
-			<div class="form-group">
-			        <label>Question :</label>
-			        <textarea rows="4" cols="50" class="form-control" ng-model="singleSurvey.questionText" value="" required> 
-			        </textarea>
-			</div>
-			<input type="submit" name="">
-		</form>
-	</div>
-</div>
+
+
+<div ng-if = "allSurveys.selectedItem" class="singlelast" ng-init = "allSurveys.allQuestion(allSurveys.selectedItem.surveyId)">
+            <div ng-hide="a">
+                <div class="text-center survey_info">
+                    <div class="H1">{{allSurveys.selectedItem.surveyTitle}}</div>
+                    <div class="H2">{{allSurveys.selectedItem.surveySubtitle}}</div>
+                    <div class="Sub">{{allSurveys.selectedItem.instructions}}</div>
+                    <div class="H1"><a ng-href = "#/{{allSurveys.selectedItem.surveyId}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                </div>
+                <div ng-if="allSurveys.questions.length>0">
+                    <h1 class="colorQuestion">Questions</h1>
+                    <div ng-repeat="question in allSurveys.questions">
+                        <div class="styleQuestion">
+                             <a ng-click = "allSurveys.questionDelete(question.questionId ,$index)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                             <a  ng-click = "allSurveys.editClicked()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                             {{question.questionText}}
+                        </div>
+                        <div ng-show="allSurveys.showEditBox=='true'" class="editQuesBox">
+                             <form ng-submit="allSurveys.editQuestion(question.questionId , question.questionText)">
+                                 <input type="text" name="editedQuestion" ng-model="question.questionText" required>
+                                 <input type="submit" name="submit_edit_ques" class="button-sm" value="Update" >
+                             </form>
+                        </div>
+                        <div class="options">
+                            <ul ng-repeat = "option in question.options track by $index" ng-init = "allSurveys.lastOptionIndex = $index">
+                                <li class="styleOption">{{option}}</li>
+                            </ul>
+                            <div ng-if="question.options.length>0">
+                                <button  type="button" class="button-sm" ng-click = "allSurveys.optionsDelete(question.options , question.questionId)">Delete All Options</button>
+                            </div>
+                            
+                            <div id="addOptions">
+                                <button type="button" class=" button-sm " ng-model='$index' ng-click="allSurveys.add = 'true' ; allSurveys.currentOption($index) ">Add Options</button>
+
+                                <div ng-if = "allSurveys.add =='true'" ng-hide = "allSurveys.currentIndex!==$index">
+                                    <form ng-submit = "allSurveys.addOption(question.options,question.questionId , $index)">
+                                        <label class="optlabel">Option :</label>
+                                        <input class="opt" type="text" name="option" ng-model="allSurveys.optionText" required>
+                                        <input type="submit" class="button" name="addOption" value="Add">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <a  ng-href="#/{{allSurveys.selectedItem.surveyId}}/edit"><button class="button">Edit</button></a>
+                    <a ><button class="button" ng-click="allSurveys.delete(allSurveys.selectedItem.surveyId,$index)">Delete</button></a>
+                    <a  href="#/{{allSurveys.selectedItem.surveyId}}/question/create"><button class="button" name="get" >Add More Questions</button></a>
+                </div>
+            </div>
+
+    </div>

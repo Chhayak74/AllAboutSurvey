@@ -3,7 +3,6 @@ myApp.controller('createSurveyCtrl' , [ '$http' , '$location' , 'surveyService',
 
     var scope = this;
     this.heading = "Fill up the details of your new Survey";
-
     this.create = function(){
         var surveyData = {
             surveyTitle : scope.surveyTitle,
@@ -13,8 +12,8 @@ myApp.controller('createSurveyCtrl' , [ '$http' , '$location' , 'surveyService',
         surveyService.createAsurvey(surveyData)
         .then(function successCallBack(response){
             alert("Success createAsurvey")
-            console.log(response + "createAsurvey");
-            // $location.path('/'+response.data); 
+            console.log(JSON.stringify(response) + "createAsurvey");
+            $location.path('/'+response.data.data.surveyId); 
         } ,
         function errorCallBack(response){
             console.log(response +"error")

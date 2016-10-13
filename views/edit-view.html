@@ -1,15 +1,24 @@
-<form ng-submit="editableSurvey.edit()">
-    <div class="form-group">
-            <label>Title</label>
-            <input type="text" name="title" class="form-control" ng-model="editableSurvey.surveyTitle" value="" required>
-    </div>
-    <div class="form-group">
-            <label>Subtitle</label>
-            <input type="text" name="subtilte" class="form-control" ng-model="editableSurvey.surveySubtitle" value="" required>
-    </div>
-    <div class="form-group">
-            <label>Instructions</label>
-            <input type="text" name="instruction" class="form-control" ng-model="editableSurvey.instructions" value="" required>
-    </div>
-    <input type="submit" name="Update Survey" value="Update Survey">
-</form>
+
+
+<div class="view">
+    <form class ="create_survey" class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6 " ng-submit="editableSurvey.edit()">
+        <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="title" name="title" class="form-control" ng-model="editableSurvey.surveyTitle" required>
+        </div>
+        <div class="form-group">
+                <label>Subtitle</label>
+                <input type="text" id="subtitle" name="subtilte" class="form-control" ng-model="editableSurvey.surveySubtitle" required>
+        </div>
+        <div class="form-group">
+                <label>Category</label>
+                <select class="select" id="instructions" name="instructions" ng-model="editableSurvey.instructions" form="create_survey">
+                  <option value="Business Surveys">Business Surveys</option>
+                  <option value="Non-Profit Organisations Surveys">Non-Profit Organisations Surveys</option>
+                  <option value="Market Research Surveys">Market Research Surveys</option>
+                  <option value="Educational Surveys">Educational Surveys</option>
+                </select>
+        </div>
+        <input class="button" type="submit" name="Update Survey"  value="Update Survey">
+    </form>
+</div>

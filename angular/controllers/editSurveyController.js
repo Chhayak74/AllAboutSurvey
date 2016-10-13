@@ -32,10 +32,11 @@ myApp.controller('editSurveyCtrl' , [ '$http' , '$location' ,'$routeParams' ,'su
     	
     	surveyService.editAsurvey(scope.surveyId , surveyData)
     	.then(function errorCallBack(response){
-    		alert("done")
+    		alert("done");
+            $location.path('/'+scope.surveyId);
     	} , function errorCallBack(response){
-    		alert("error")
-
+    		alert("Error!! Check console")
+            console.log(response)
     	});
     }
 

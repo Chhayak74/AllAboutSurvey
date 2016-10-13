@@ -13,11 +13,15 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="https://material.angularjs.org/1.1.1/docs.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Lobster+Two|Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,39 +33,115 @@
 </head>
 
 <body>
+    
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row" id="main_head">
+                <div >
+                    <div>
+                        <div class="text-center" id="header">
+                           <div id="blank"></div>
+                           <a href="#/"><span class="heading">iSurvey</span></a> 
+                           <br>
+                           <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                           <span id="one" class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                           <span id="two" class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                           <span id="three" class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        </div>
+                        <div ng-view ng-class="{form : index}" id="height">
+                            
+                        </div>
+                    </div>
+                   
+                </div>
 
-    <div ng-view>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+            <footer>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="copy">
+                            <h1 class="text-muted text-center">Follow Us</h1>
+                            <ul class="list-inline text-center">
+                                <li>
+                                    <a href="#">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            <p class="copyright text-muted text-center">&copy; iSurvey.com 2016</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         
+
+
+
+        
+
+
+        <div class="push"></div>
     </div>
+    <div class="footer"></div>
 
     
+        <!-- jQuery -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
 
 
 
-   
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+        <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+        <script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js"></script>
+        <script type="text/javascript" src=angular/app.js></script>
+        <script type="text/javascript" src="angular/services.js"></script>
+        <!-- including controllers -->
+        <script type="text/javascript" src="angular/controllers/createSurveyController.js"></script>
+        <script type="text/javascript" src="angular/controllers/mainController.js"></script>
+        <script type="text/javascript" src="angular/controllers/editSurveyController.js"></script>
+        <script type="text/javascript" src="angular/controllers/singleSurveyController.js"></script>
+        <script type="text/javascript" src="angular/controllers/questionCreateController.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
-    
-
-    <script type="text/javascript" src=angular/app.js></script>
-    <script type="text/javascript" src="angular/services.js"></script>
-    <!-- including controllers -->
-    <script type="text/javascript" src="angular/controllers/createSurveyController.js"></script>
-    <script type="text/javascript" src="angular/controllers/mainController.js"></script>
-    <script type="text/javascript" src="angular/controllers/editSurveyController.js"></script>
-    <script type="text/javascript" src="angular/controllers/singleSurveyController.js"></script>
-
-  
-    <script type="text/javascript" src="angular/routes.js"></script>
-
+        
+        <script type="text/javascript" src="angular/routes.js"></script>
+        <script type="text/javascript" src="angular/animation/slide.js"></script>
 </body>
 
 </html>
