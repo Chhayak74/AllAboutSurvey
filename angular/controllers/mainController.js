@@ -1,12 +1,11 @@
 //Conrtoller to get all Surveys
-myApp.controller('mainCtrl' , [ '$http' , '$location' ,'$timeout', '$q', '$log', 'surveyService', function($http , $location ,$timeout, $q, $log, surveyService){
+myApp.controller('mainCtrl' , [ '$http' , '$location' ,'$timeout', '$q', '$log', '$route','$interval', 'surveyService' ,function($http , $location ,$timeout, $q, $log, $route,$interval, surveyService){
     
-    // var width = angular.element(document.getElementById(view1)).clientWidth;
-    var height1 = document.getElementById('height').offsetHeight;
-    console.log("Height= "+height1)
+    
     console.log("controller is called")
     var scope = this;
-    this.message = "Welcome!!";
+    this.message = "Providing The Most Precise Collection of Surveys!!";
+    
     this.getAllsurveys = function(){
         surveyService.getAllsurveys()
         .then(function successCallBack(response){
@@ -53,8 +52,7 @@ myApp.controller('mainCtrl' , [ '$http' , '$location' ,'$timeout', '$q', '$log',
       surveyService.editAQuestion(questionId , questionText)
       .then(function successCallBack(response){
         console.log(response)
-        alert("edit")
-        // questionTextOriginal = response.questionText;
+        // alert("edit")
         scope.showEditBox = '';
       }, function errorCallBack(response){
         alert("Error!! Check console")
@@ -78,7 +76,7 @@ myApp.controller('mainCtrl' , [ '$http' , '$location' ,'$timeout', '$q', '$log',
         }
         surveyService.createOption(questionId , optionText)
         .then(function successCallBack(response){
-            alert("Option added successfully");
+            // alert("Option added successfully");
             console.log(response)
             scope.add = ''
             options.push(scope.optionText)
@@ -93,7 +91,7 @@ myApp.controller('mainCtrl' , [ '$http' , '$location' ,'$timeout', '$q', '$log',
     this.optionsDelete = function(options , questionId){
       surveyService.deleteOptions(questionId)
       .then(function successCallBack(response){
-        alert("Options deleted successfully")
+        // alert("Options deleted successfully")
         console.log("Last :"+scope.lastOptionIndex)
         var length = scope.lastOptionIndex + 1;
         options.splice(0 , length) 
@@ -104,10 +102,24 @@ myApp.controller('mainCtrl' , [ '$http' , '$location' ,'$timeout', '$q', '$log',
       });
     }//end delete all options
 
+    this.answerBox = '';
+
+    this.answersDelete = function(questionId){
+       surveyService.deleteAnswers(questionId)
+       .then(function successCallBack(response){
+        alert("All Answers Deleted Successfully")
+        scope.answerBox = 'true';
+        console.log(response)
+       }, function errorCallBack(response){
+        alert("Error!! Check console")
+        console.log(response)
+       });
+    }//end delete answers
+
     this.questionDelete = function(questionId , index){
       surveyService.deleteQuestion(questionId)
       .then(function successCallBack(response){
-        alert("Question deleted successfully")
+        // alert("Question deleted successfully")
         scope.questions.splice(index , 1)
       }, function errorCallBack(response){
         alert("Error!! Check console")
@@ -118,7 +130,7 @@ myApp.controller('mainCtrl' , [ '$http' , '$location' ,'$timeout', '$q', '$log',
     this.delete = function(surveyId , index){
         surveyService.deleteSurvey(surveyId)
         .then(function successCallBack(response){
-            alert("Survey deleted successfully")
+            // alert("Survey deleted successfully")
             scope.surveys.splice(index, 1)
             scope.resetSearchText()
         }, function errorCallBack(response){

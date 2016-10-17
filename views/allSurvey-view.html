@@ -1,18 +1,24 @@
-<div>
+<!-- View to view all the surveys in "Admin Page" -->
+
+<div ng-model='other'>
 	<div ng-repeat="survey in allSurveys.surveys" class="slide">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 " ng-class = "{'singlelast' : $last , 'single' :!$last}">
+				<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 singlelast" ng-class = "{'singlelast' : $last , 'single' :!$last}">
 					<div class="survey_head">
 					    
 						<a ng-href='#/{{survey.surveyId}}' class="H1"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> {{survey.surveyTitle}}</a>
 
-						<div class="H2"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>     {{survey.surveySubtitle}}</div>
+						<div class="H2"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>     {{survey.surveySubtitle}}
+						</div>
+
 						<div class="H2">
 							<strong><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Category</strong> : {{survey.instructions}}
 						</div>
+
 					</div>
 					<hr>
+
 					<div>
 						<a ><button class="button"  ng-click='allSurveys.delete(survey.surveyId , $index)'>Delete</button></a>
 						<a href="#/{{survey.surveyId}}"><button class="button">View</button></a>
@@ -26,21 +32,3 @@
 
 
 
-<!-- <div ng-if="!allSurveys.selectedItem" id="all">
-                <div ng-show="allSurveys.getAll" ng-init="allSurveys.getAllsurveys()">
-                    <div ng-repeat="survey in allSurveys.surveys">
-                        <div class="card">
-                            <div class="title">
-                                <a ng-href='#/{{survey.surveyId}}'>{{survey.surveyTitle}}</a>
-                                <p>{{survey.surveySubtitle}}</p>
-                            </div>
-                            <div class="instruct">
-                                <p>{{survey.instructions}}</p>
-                            </div>
-                            <div class="actions">
-                                <button  ng-click='allSurveys.delete(survey.surveyId , $index)'>Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div> -->

@@ -1,0 +1,50 @@
+<!-- Home page for a User - Viewing all the surveys  -->
+
+<div id="home" >
+
+    <!-- Filter Surveys -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10">
+			    <div class="message text-center">
+			        <h2 id="page-head-home">{{allSurveys.message}}</h2>
+			    </div>
+				<input id="filter" type="search" ng-model="q.$" placeholder="Filter Surveys..." aria-label="Filter Surveys" />
+				<div id="searchIcon">
+			    	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			    </div>
+			</div>
+		</div>
+	</div>
+    
+    <!-- All Surveys -->
+	<div class="animate-repeat" ng-repeat="survey in allSurveys.surveys | filter:q :strict" class="slide"> 
+
+		<div class="container" >
+			<div class="row">
+				<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 singlelast" ng-class = "{'singlelast' : $last ,'first' : $first, 'single' :!$last}">
+					<div class="survey_head">
+					    
+                        <div class="H1"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>     {{survey.surveyTitle}}
+						</div>
+
+						<div class="H2"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>     {{survey.surveySubtitle}}
+						</div>
+
+						<div class="H2">
+							<strong><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Category</strong> : {{survey.instructions}}
+						</div>
+
+					</div>
+					<hr>
+
+					<div class="text-center">
+						<a class="text-center" href="#/{{survey.surveyId}}/poll"><button class="buttonPoll">Poll</button></a>
+					</div>
+                    
+				</div>
+			</div>
+		</div>
+	</div><!-- end of all surveys -->
+</div>
+

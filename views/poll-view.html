@@ -1,0 +1,46 @@
+<!-- Poll view for an user -->
+
+<div class="container" ng-model='other' ng-init="other='s'">
+	<div class="row">
+		<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 singlelast">
+			<div>
+				<div class="text-center survey_info">
+					<div class="H1">{{pollSurvey.surveyobj.surveyTitle}}</div>
+					<div class="H2">{{pollSurvey.surveyobj.surveySubtitle}}</div>
+					<div class="Sub">{{pollSurvey.surveyobj.instructions}}</div>
+				</div>
+				<div ng-if="pollSurvey.questions.length>0" ng-hide = "pollSurvey.currentIndex===pollSurvey.questions.length">
+					<h1>Questions</h1>
+					<div ng-repeat="question in pollSurvey.questions">
+						<div ng-if=" $index==pollSurvey.currentIndex ">
+							<div>{{question.questionText}}</div>
+							<div >
+							    <form name="optionForm" >
+							      <div ng-repeat="option in question.options">
+							        <input type="radio" ng-model="pollSurvey.answers" ng-click="pollSurvey.selectedOptionNumber($index)" ng-value="pollSurvey.ansValue($index)" required >
+							            {{option}}
+							      </div><br>
+							     </form>
+							<div>
+								<a ><button class="button" ng-click=" pollSurvey.createAns(question.questionId )">Save &amp; Next </button></a>
+								<a ><button class="button" ng-click="pollSurvey.currentQuesIndex($index) ; pollSurvey.skipAns(question.questionId)">Skip</button></a>
+							</div>
+
+						    </div>
+					    </div>
+					</div>
+					
+				</div>
+				<br>
+
+				<div id="Thank-You" ng-show = "pollSurvey.currentIndex===pollSurvey.questions.length">
+					<div>
+						<h1>Thanks For Your Reviews !!!</h1>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+</div>

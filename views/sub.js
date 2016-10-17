@@ -1,1 +1,0 @@
-myApp.directive('sub' , [])

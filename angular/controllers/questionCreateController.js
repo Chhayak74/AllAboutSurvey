@@ -1,10 +1,11 @@
-    
 
 //Conrtoller to create a question
-myApp.controller('questionCreateCtrl' , [ '$http' , '$location' ,'$routeParams' , 'surveyService', function($http , $location,$routeParams, surveyService){
+myApp.controller('questionCreateCtrl' , [ '$http' , '$location' ,'$routeParams','$route' , 'surveyService', function($http , $location,$routeParams,$route, surveyService){
 
     var scope = this;
     this.heading = "";
+    this.$route = $route;
+     surveyService.requestingSomeURL();
     this.surveyId = $routeParams.surveyId;
     console.log(this.surveyId)
     
@@ -18,7 +19,7 @@ myApp.controller('questionCreateCtrl' , [ '$http' , '$location' ,'$routeParams' 
         var surveyId = scope.surveyId;
         surveyService.createQuestion(surveyId , questionText)
         .then(function successCallBack(response){
-            alert("addQuestion")
+            // alert("addQuestion")
             $location.path('/'+surveyId)
             console.log(response)
         } , function errorCallBack(response){
@@ -31,7 +32,7 @@ myApp.controller('questionCreateCtrl' , [ '$http' , '$location' ,'$routeParams' 
     this.editQuestion = function(){
         surveyService.editAQuestion(scope.surveyId , scope.questionText)
         .then(function successCallBack(response){
-            alert("addQuestion")
+            // alert("addQuestion")
         } , function errorCallBack(response){
             alert("errorCallBack")
             console.log(response)
@@ -41,12 +42,12 @@ myApp.controller('questionCreateCtrl' , [ '$http' , '$location' ,'$routeParams' 
     this.deleteQuestion = function(questionId){
         surveyService.deletQuestion(questionId)
         .then(function successCallBack(response){
-            alert("question deleted")
+            // alert("question deleted")
         } , function errorCallBack(response){
             alert("errorCallBack question deleted")
             console.log(response)
         });
-    }//end add a question
+    }//end delet question
 
 
 

@@ -1,50 +1,54 @@
 myApp.config( ['$routeProvider'  , function($routeProvider ){
     $routeProvider
 	.when('/',{
-	    // location of the template
 		templateUrl		: 'views/index-view.html',
-		// Which controller it should use 
 	    controller 		: 'mainCtrl',
-	    // what is the alias of that controller.
-		controllerAs 	: 'allSurveys'
+		controllerAs 	: 'allSurveys',
+		activetab       : 'dashboard'
+	})
+	.when('/home',{
+		templateUrl		: 'views/home-view.html',
+	    controller 		: 'mainCtrl',
+		controllerAs 	: 'allSurveys',
+		activetab       : 'home'
+	})
+	.when('/:surveyId/poll',{
+		templateUrl		: 'views/poll-view.html',
+	    controller 		: 'pollCtrl',
+		controllerAs 	: 'pollSurvey',
+		activetab       : 'poll'
 	})
 	.when('/all',{
-	    // location of the template
 		templateUrl		: 'views/allSurvey-view.html',
-		// Which controller it should use 
 	    controller 		: 'mainCtrl',
-	    // what is the alias of that controller.
-		controllerAs 	: 'allSurveys'
+		controllerAs 	: 'allSurveys',
+		activetab       : 'all'
 	})
-	/*.when('/questions/:questionId/options/create',{
-	    // location of the template
-		templateUrl		: 'views/index-view.html',
-		// Which controller it should use 
-	    controller 		: 'mainCtrl',
-	    // what is the alias of that controller.
-		controllerAs 	: 'allSurveys'
-	})*/
 	.when('/create',{
 		templateUrl     : 'views/create-view.html',
 		controller 		: 'createSurveyCtrl',
-		controllerAs 	: 'currentSurvey'
+		controllerAs 	: 'currentSurvey',
+		activetab       : 'createSurvey'
 	})
 	.when('/:surveyId/edit',{
 
 		templateUrl     : 'views/edit-view.html',
 		controller 		: 'editSurveyCtrl',
-		controllerAs 	: 'editableSurvey'
+		controllerAs 	: 'editableSurvey',
+		activetab       : 'editSurvey'
 	})
 	.when('/:surveyId' , {
 
 	    templateUrl     : 'views/singleSurvey-view.html',
 	    controller      : 'singleSurveyCtrl',
-	    controllerAs    : 'singleSurvey'
+	    controllerAs    : 'singleSurvey',
+		activetab       : 'singlesurvey'
 	})
 	.when('/:surveyId/question/create' , {
 		templateUrl : 'views/create-question.html',
 		controller : 'questionCreateCtrl' ,
-		controllerAs : 'questionCreate'
+		controllerAs : 'questionCreate',
+		activetab       : 'createquestion'
 	})
 
 	.otherwise(

@@ -9,12 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>AllAboutSurvey</title>
+    <title>iSurvey</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Angualr Material CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.css">
     <link rel="stylesheet" type="text/css" href="https://material.angularjs.org/1.1.1/docs.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
@@ -41,7 +45,7 @@
                     <div>
                         <div class="text-center" id="header">
                            <div id="blank"></div>
-                           <a href="#/"><span class="heading">iSurvey</span></a> 
+                           <a href="#/home"><span class="heading">iSurvey</span></a> 
                            <br>
                            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
                            <span id="one" class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -50,13 +54,10 @@
                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                         </div>
-                        <div ng-view ng-class="{form : index}" id="height">
-                            
+                        <div ng-view autoscroll="true"  ng-class="{'form' : index , 'height' :  $route.current.activetab!=='dashboard' , 'pollheight' : other}" > 
                         </div>
                     </div>
-                   
                 </div>
-
             </div>
         </div>
 
@@ -101,15 +102,8 @@
             </footer>
         
 
-
-
-        
-
-
-        <div class="push"></div>
-    </div>
-    <div class="footer"></div>
-
+    </div><!-- end wrapper div -->
+    
     
         <!-- jQuery -->
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -117,30 +111,36 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
+        <!-- Angualr JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         
+
+        <!-- Angular Modules -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
-
-
-
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
-        
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
         <script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
         <script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.1/angular-material.js"></script>
+
+        <!-- Angular Application -->
         <script type="text/javascript" src=angular/app.js></script>
+
+        <!-- Services -->
         <script type="text/javascript" src="angular/services.js"></script>
+
         <!-- including controllers -->
         <script type="text/javascript" src="angular/controllers/createSurveyController.js"></script>
         <script type="text/javascript" src="angular/controllers/mainController.js"></script>
         <script type="text/javascript" src="angular/controllers/editSurveyController.js"></script>
         <script type="text/javascript" src="angular/controllers/singleSurveyController.js"></script>
         <script type="text/javascript" src="angular/controllers/questionCreateController.js"></script>
+        <script type="text/javascript" src="angular/controllers/pollController.js"></script>
 
-        
+        <!-- Routes -->
         <script type="text/javascript" src="angular/routes.js"></script>
+
+        <!-- Animations -->
         <script type="text/javascript" src="angular/animation/slide.js"></script>
 </body>
 

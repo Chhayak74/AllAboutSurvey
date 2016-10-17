@@ -6,30 +6,47 @@
 * {
    margin: 0;
 }
+
 body{
   font-family: 'Taviraj', serif;
    height: 100%;
 }
 
+.height {
+    background-color: #edeee8;
+    background-image: url("/img/img5.jpg");
+    background-size: cover;
+    min-height: 255vmin;
+}
+
+.pollheight {
+    background-color: #edeee8;
+    background-image: url("/img/img5.jpg");
+    background-size: cover;
+    min-height: 100vmin;
+}
+
 html, body {
     height: 100%;
 }
+
 .wrapper {
     min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
 }
-.footer, .push {
-    height: 142px; /* .push must be the same height as .footer */
-}
 
 h1 ,.H1 {
-  font-size: 3vmin;
+  font-size: 4vmin;
   color: black;
 }
-.H2 ,.Sub {
-  font-size: 2vmin;
+.H2 {
+  font-size: 3vmin;
+}
+
+.Sub  {
+  font-size: 1.5vmin;
 }
 
 input {
@@ -40,11 +57,41 @@ input {
   font-size: 1vmin;
 }
 
+#page-head {
+  font-size: 4vmin;
+  color: white;
+  border-radius: 3vmin;
+  padding: 2vmin;
+  background-color: #944866;
+  line-height: 1;
+}
+
+#page-head-home {
+  font-size: 4vmin;
+  color: white;
+  border-radius: 3vmin;
+  padding: 2vmin;
+  background-color: #944866;
+  line-height: 1;
+  margin-top: 10vmin;
+}
+
+
+
 .btn-xs {
   background-color: #ead042;
   color: white;
 }
 
+/*loader*/
+md-progress-circular.md-mode-intermediate.ng-isolate-scope{
+  margin-left: 45%;
+  margin-top: 5%;
+}
+
+div.layout-sm-column {
+  margin-bottom: 5vmin;
+}
 
 
 .view {
@@ -82,6 +129,13 @@ input {
   height: 20%;
 }
 
+.message {
+
+  margin-top: -2vmin;
+  color: yellow;
+  font-size: 3vmin;
+}
+
 a .heading , a .actionBtns2 {
   color: white;
 } 
@@ -97,9 +151,7 @@ div#header {
 #create_btn {
   margin-top: .3%;
 }
-div#height {
-  /*min-height: 70vmin;*/
-}
+
 
 glyphicon-star:before , glyphicon-star:before {
   font-size: 3vmin;
@@ -113,12 +165,17 @@ div.outer {
   color: black;
 }
 
-.styleQuestion {
+.styleOption{
   color: black;
   font-size: 2vmin;
 }
 
-.heading {
+.styleQuestion {
+  color: black;
+  font-size: 2.5vmin;
+}
+
+.heading  {
   font-size: 7vmin;
   font-weight: 900;
   letter-spacing: 2px;
@@ -127,6 +184,11 @@ div.outer {
   font-family: 'Poiret One', cursive;
   /*font-family: 'Lobster Two', cursive;*/
   /*font-family: 'EB Garamond', serif;*/
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .glyphicon.glyphicon-check ,#one, #two, #three {
@@ -140,15 +202,12 @@ form.ng-pristine.ng-valid.ng-valid-required{
   padding: 0px;
 }
 
-/*#input-0 {
-  background-color: transparent !important;
-}*/
 
 .cover {
   background-color: red;
-  /*height: 70px;*/
   width: 100%;
   margin-top: 30px;
+  margin-bottom: 3vmin;
   background-color: rgba(121, 203, 180, 0.51);
 
 }
@@ -176,23 +235,27 @@ button.actionBtns2 {
   transition: transform .3s ease-out;
 }
 
+#allbtn:hover {
+  text-shadow: -1px -1px 20px white;
+  transform: translate(0, -5px);
+  transition: transform .3s ease-out;
+  color: red;
+}
+
 .shadow1 {
   text-shadow: -1px -1px 20px white;
   
 }
 
 .form {
-  /*background-color: #ff5252;*/
   padding: 45px;
   color: whitesmoke;
   background-image: url("/img/img4.jpg");
   background-size: cover;
   background-color: rgb(150, 108, 83);
-}
-
-.form img {
-  width: 919px;
-  height: 401px;
+  background-color: #edeee8;
+  background-size: cover;
+  min-height: 100vmin;
 }
 
 .button {
@@ -205,12 +268,17 @@ button.actionBtns2 {
   border-style: none;
 }
 
-/*div {
-  -webkit-transition: width 1s; 
-  transition: width 1s;
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden; 
-}*/
+.buttonPoll {
+  background-color: #ead042;
+  border: none;
+  color: white;
+  font-size: 2vmin;
+  font-weight: 500;
+  border-radius: 6px;
+  border-style: none;
+  width: 20vmin;
+  font-size: 3vmin;
+}
 
 .button-sm {
   background-color: #337ab7;
@@ -230,7 +298,7 @@ button.actionBtns2 {
 
 .button-sm:hover {
   
-  width: 13vmin;
+  width: 18vmin;
   
 }
 
@@ -238,6 +306,15 @@ button.actionBtns2 {
 .button:hover {
   transform: translate(0, -5px);
   transition: transform .3s ease-out;
+}
+
+.actionBtns2:hover {
+
+  transform: translate(0, -5px);
+  transition: transform .3s ease-out;
+  background-color: transparent;
+  color: white;
+  text-shadow: -1px -1px 20px white;
 }
 
 .select {
@@ -258,6 +335,8 @@ label.optlabel {
 }
 
 /* Create form*/
+
+
 .create_survey {
   padding: 4vmin;
   background-color: white;
@@ -284,6 +363,22 @@ label.optlabel {
   border-top-left-radius: 4px;
 }
 
+/*edit survey*/
+
+.edit_survey{
+  padding: 4vmin !important;
+  background-color: white;
+  width: 50%;
+  color: black;
+  margin-top: 10vmin;
+  margin-bottom: 4vmin;
+  border-top: 10px solid gold;
+  border-left: 1px solid gold;
+  border-right: 1px solid gold;
+  border-bottom: 10px solid gold;
+}
+}
+
 /*Single Suvey*/
 .single {
     border-top: 5px solid #dcbc2b;
@@ -304,7 +399,16 @@ label.optlabel {
     margin-top: 4vmin;
     background-color: beige;
     margin-bottom: 4vmin;
+}
 
+.first {
+    border-top: 5px solid #dcbc2b;
+    border-bottom: 5px solid #dcbc2b;
+    border-right: 1px solid #dcbc2b;
+    border-left :1px solid #dcbc2b;
+    padding: 2vmin;
+    margin-top: 7vmin;
+    background-color: beige;
 }
 
 hr {
@@ -314,6 +418,7 @@ hr {
 
 .survey_head {
   padding: 2vmin;
+  line-height: 5vmin;
 }
 
 .survey_info {
@@ -366,8 +471,9 @@ ul li {
     margin: 6%;
   }
 
-  div#height {
-    /*min-height: 110vmin;*/
+  .height {
+    background-color: #edeee8;
+    min-height: 255vmin;
   }
   
   h1 {
@@ -391,6 +497,10 @@ ul li {
     margin: 4%;
   }
 
+  .Sub {
+    font-size: 16px;
+  }
+
   .button-sm {
   background-color: #337ab7;
   border: none;
@@ -412,4 +522,63 @@ ul li {
     font-size: 3vmin;
     text-transform: uppercase;
   }
+}
+
+/**
+*
+*User Part
+**/
+
+.animate-repeat {
+  line-height:30px;
+  list-style:none;
+  box-sizing:border-box;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  transition:all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:30;
+  max-height:30px;
+}
+
+#filter {
+  text-align: center;
+  width: 100%;
+  margin-left: -2vmin;
+  margin-top: 6vmin;
+  font-size: 4vmin;
+  height: 5vmin;
+  color: #303030;
+  padding: 1vmin;
+  border: .4vmin solid #339099;
+}
+
+#searchIcon {
+  margin-top: -5.5vmin;
+  font-size: 3.5vmin;
+}
+
+#home {
+  background-image: url("/img/img5.jpg");
+  background-size: cover;
+}
+
+#Thank-You {
+  min-height: 50vmin;
+  text-align:center;
+  margin-top: 40%;
 }
