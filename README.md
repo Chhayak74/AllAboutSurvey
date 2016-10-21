@@ -1,11 +1,11 @@
 # AllAboutSurvey
 A free easily customizable custom survey creator.
 -----------------------------------------------------------------------------
-Clone or Download the code and run in localhost.
+Clone or download the code and run in localhost.
 -----------------------------------------------------------------------------
 ##Two Modules##
 
-### 1. Admin Module ### 
+### 1. Admin Module 
 
 Route for Admin Page - /
 
