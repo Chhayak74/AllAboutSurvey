@@ -1,6 +1,6 @@
-myApp.config( ['$routeProvider'  , function($routeProvider ){
+myApp.config( ['$routeProvider' ,'$locationProvider'  , function($routeProvider , $locationProvider ){
     $routeProvider
-	.when('/',{
+	.when('/index.html',{
 		templateUrl		: 'views/index-view.html',
 	    controller 		: 'mainCtrl',
 		controllerAs 	: 'allSurveys',
@@ -49,13 +49,14 @@ myApp.config( ['$routeProvider'  , function($routeProvider ){
 		controller : 'questionCreateCtrl' ,
 		controllerAs : 'questionCreate',
 		activetab       : 'createquestion'
-	})
+	});
 
-	.otherwise(
+	/*.otherwise(
 	    {
 	        //redirectTo:'/'
 	        template   : '<h1>404 page not found</h1>'
 	    }
-	);
+	);*/
+    $locationProvider.html5Mode(true);
 
 }]);
