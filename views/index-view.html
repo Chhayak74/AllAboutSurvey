@@ -14,10 +14,10 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div id="create_btn" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center" ng-class="{shadow : over}">
-                           <a ng-mouseover="over='true'" ng-model="over" ng-mouseleave="over = ''" class="actionBtns1"  ng-href='#/create'>Create New Survey</a> 
+                           <a ng-mouseover="over='true'" ng-model="over" ng-mouseleave="over = ''" class="actionBtns1"  ng-href='create'>Create New Survey</a> 
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center" ng-class="{shadow1 : over1}">
-                           <a  href="#/all" ng-mouseover="over1='true'" ng-model="over1" ng-mouseleave="over1 = ''" ><button class="actionBtns2"  ng-click="allSurveys.getAll='true' ; allSurveys.resetSearchText()">Show All Surveys</button></a> 
+                           <a  href="all" ng-mouseover="over1='true'" ng-model="over1" ng-mouseleave="over1 = ''" ><button class="actionBtns2"  ng-click="allSurveys.getAll='true' ; allSurveys.resetSearchText()">Show All Surveys</button></a> 
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     <div class="H2">{{allSurveys.selectedItem.surveySubtitle}}</div>
                     <div class="Sub">{{allSurveys.selectedItem.instructions}}</div>
                     <!-- Edit button -->
-                    <div class="H1"><a ng-href = "#/{{allSurveys.selectedItem.surveyId}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                    <div class="H1"><a ng-href = "{{allSurveys.selectedItem.surveyId}}/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
                 </div>
 
                 <!-- All Questions -->
@@ -120,7 +120,7 @@
                 <!-- Delete a Survey and Add more questions button -->
                 <div>
                     <a ><button class="button" ng-click="allSurveys.delete(allSurveys.selectedItem.surveyId,$index)">Delete</button></a>
-                    <a  href="#/{{allSurveys.selectedItem.surveyId}}/question/create"><button class="button" name="get" >Add More Questions</button></a>
+                    <a  href="{{allSurveys.selectedItem.surveyId}}/question/create"><button class="button" name="get" >Add More Questions</button></a>
                 </div>
             </div>
 
