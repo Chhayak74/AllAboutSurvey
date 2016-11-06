@@ -16,19 +16,24 @@ body{
     background-color: #edeee8;
     background-image: url("/img/img5.jpg");
     background-size: cover;
-    min-height: 255vmin;
+    background-attachment: fixed;
+    /*min-height: 255vmin;*/
 }
 
 .pollheight {
     background-color: #edeee8;
     background-image: url("/img/img5.jpg");
     background-size: cover;
-    min-height: 100vmin;
+    /*min-height: 100vmin;*/
 }
 
 html, body {
     height: 100%;
 }
+
+/*.row{
+  margin-bottom: 20%;
+}*/
 
 .wrapper {
     min-height: 100%;
@@ -159,6 +164,7 @@ glyphicon-star:before , glyphicon-star:before {
 
 div.outer {
   margin-top: 10%;
+  margin-bottom: 20%;
 }
 
 .colorQuestion , .styleOption{
@@ -252,10 +258,11 @@ button.actionBtns2 {
   color: whitesmoke;
   background-image: url("/img/img4.jpg");
   background-size: cover;
+  background-attachment: fixed;
   background-color: rgb(150, 108, 83);
   background-color: #edeee8;
   background-size: cover;
-  min-height: 100vmin;
+  /*min-height: 100vmin;*/
 }
 
 .button {
@@ -473,7 +480,7 @@ ul li {
 
   .height {
     background-color: #edeee8;
-    min-height: 255vmin;
+    /*min-height: 255vmin;*/
   }
   
   h1 {
